@@ -19,7 +19,9 @@ namespace XamarinFormsExtendedSplashPage
         {
             base.OnAppearing();
 
-            Navigation.RemovePage(Navigation.NavigationStack[0]);
+            var rootPage = Navigation.NavigationStack[0];
+            if (typeof (RootPage) == rootPage.GetType()) return; 
+            Navigation.RemovePage(rootPage);
         }
     }
 }
